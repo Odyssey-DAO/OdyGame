@@ -42,4 +42,22 @@ module.exports = {
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
+  utils: {
+    interact: async function (abi, contAddress, network, account) {
+      if (account == undefined) account = (await hre.ethers.getSigner()).address;
+      const provider = new ethers.providers.JsonRpcProvider(network.url);
+      const signer = provider.getSigner(account);
+      const contract = new ethers.Contract(contAddress, abi, signer);
+      return {
+        provider, signer, contract
+      };
+    },
+    interactLocal: async function (name, contAddress) {
+      let Contract = await hre.ethers.getContractFactory(name);
+      let contract = await Contract.attach(contAddress);
+      return {
+        contract,
+      };
+    },
+  }
 };

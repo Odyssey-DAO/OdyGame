@@ -15,17 +15,17 @@ async function main() {
 
   // We get the contract to deploy
 
-  const Air = await hre.ethers.getContractFactory("Air");
-  const air = await Air.deploy();
-  await air.deployed();
+  // const Air = await hre.ethers.getContractFactory("Air");
+  // const air = await Air.deploy();
+  // await air.deployed();
   
-  const Fuel = await hre.ethers.getContractFactory("Fuel");
-  const fuel = await Fuel.deploy();
-  await fuel.deployed(); 
+  // const Fuel = await hre.ethers.getContractFactory("Fuel");
+  // const fuel = await Fuel.deploy();
+  // await fuel.deployed(); 
 
-  const Poll = await hre.ethers.getContractFactory("Poll");
-  const poll = await Poll.deploy(fuel.address);
-  await poll.deployed(); 
+  // const Poll = await hre.ethers.getContractFactory("Poll");
+  // const poll = await Poll.deploy(fuel.address);
+  // await poll.deployed(); 
 
   const NFT = await hre.ethers.getContractFactory("OdysseyDAONFT");
   const NFT_ = await NFT.deploy();
@@ -33,10 +33,10 @@ async function main() {
 
   
 
-  console.log("AIR deployed to:", air.address);
-  console.log("FUEL deployed to:", fuel.address);
+  // console.log("AIR deployed to:", air.address);
+  // console.log("FUEL deployed to:", fuel.address);
   console.log("NFT deployed to:", NFT_.address);
-  console.log("Poll deployed to:", poll.address);
+  // console.log("Poll deployed to:", poll.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
